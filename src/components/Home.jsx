@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import MainProduct from "./MainProduct";
+import Slogan from "./Slogan";
 
 export default function Home(props) {
   const { products } = props;
   return (
     <div>
-      <MainProduct />
+      <Slogan />
       <div className="flex flex-wrap justify-center px-10 py-10">
         {products.map((product) => (
           <div className="w-80 ml-10 mb-8" key={product.id}>

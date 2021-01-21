@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-export default function MainProduct(props) {
+export default function Slogan(props) {
     return (
         <div className="p-20 flex justify-center">
             <div className="w-96 my-4">
