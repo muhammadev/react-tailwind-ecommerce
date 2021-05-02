@@ -1,8 +1,8 @@
+import Footer from "./Footer";
 import ProductOverview from "./ProductOverview";
 import Slogan from "./Slogan";
 
-export default function Home(props) {
-  const { products } = props;
+export default function Home({ products, categories }) {
   return (
     <div>
       <Slogan />
@@ -11,6 +11,7 @@ export default function Home(props) {
           <ProductOverview product={product} />
         ))}
       </div>
+      <Footer categories={categories} products={products} />
     </div>
   );
 }

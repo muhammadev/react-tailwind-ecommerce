@@ -39,7 +39,7 @@ export default function ProductPage(props) {
   // props
   const { setCart, cart } = props;
   return (
-    <div className="">
+    <div>
       {error ? (
         () => {
           console.log("error fetching product: ", error);
@@ -54,30 +54,30 @@ export default function ProductPage(props) {
           Loading...
         </div>
       ) : (
-        <div className="m-auto mt-20 px-20 md:px-40 flex justify-center flex-wrap md:flex-nowrap">
+        <div className="m-auto mt-20 px-20 md:px-40 flex md:flex-col justify-center flex-wrap md:flex-nowrap">
           <div className="flex items-center">
             <img
-              className="max-h-80 max-w-xs mb-2 object-cover"
+              className="max-h-80 max-w-xs md:m-auto mb-2 object-cover"
               src={product.image}
             />
           </div>
-          <div className="flex flex-wrap justify-center md:justify-start">
+          <div className="mt-8 flex flex-col">
             <div className="flex flex-col justify-center items-center text-center m-auto mx-10 md:mr-10">
               <p className="text-sm">
                 Category:{" "}
-                <Link to={`/${product.category}`}>{product.category}</Link>
+                <Link to={`/categories/${product.category?.split(" ").join("-")}`}>{product.category}</Link>
               </p>
               <h2 className="font-bold my-4">{product.title}</h2>
               <p className="">
                 Price: <b>${product.price}</b>
               </p>
-              <div className="flex my-8">
-                <div className="cursor-pointer mr-4 w-10 h-10 bg-blue-500 rounded-4"></div>
-                <div className="cursor-pointer mr-4 w-10 h-10 bg-red-500 rounded-4"></div>
-                <div className="cursor-pointer mr-4 w-10 h-10 bg-green-500 rounded-4"></div>
+              <div className="flex my-4">
+                <div className="cursor-pointer mx-2 w-10 h-10 bg-blue-500 rounded-4"></div>
+                <div className="cursor-pointer mx-2 w-10 h-10 bg-red-500 rounded-4"></div>
+                <div className="cursor-pointer mx-2 w-10 h-10 bg-green-500 rounded-4"></div>
               </div>
             </div>
-            <div className="min-w-sm m-auto mt-10 flex flex-col justify-center items-center">
+            <div className="min-w-sm m-auto mt-4 flex flex-col justify-center items-center">
               <button
                 onClick={() => {
                   let founded = false;
@@ -113,7 +113,7 @@ export default function ProductPage(props) {
                 Add to cart <b>&middot;</b> $
                 {(product.price * quantity).toFixed(2)}
               </button>
-              <div className="px-4 my-4">
+              <div className="my-4">
                 <button
                   onClick={() => {
                     setQuantity(quantity - 1);

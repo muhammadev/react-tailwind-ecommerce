@@ -15,9 +15,7 @@ function App() {
 
   const [cart, setCart] = useState([]);
 
-  const categories = products.map((product) => product.category);
-
-  console.log(cart);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -34,6 +32,12 @@ function App() {
         }
       );
   }, []);
+
+  useEffect(() => {
+    let uniqueCategories = new Set(products.map((product) => product.category)); // get categories list without repeating values
+    setCategories([...uniqueCategories]);
+    console.log([...uniqueCategories]);
+  }, [products])
 
   return (
     <Router>

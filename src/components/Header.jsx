@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header(props) {
-  const { cart, categories } = props;
-  const listOfCategories = [];
-  categories.forEach((category) => {
-    if (listOfCategories.indexOf(category) === -1) {
-      listOfCategories.push(category);
-    }
-  });
+export default function Header({ cart, categories }) {
   return (
     <div className="absolute top-0 left-0 w-full flex justify-between px-4 md:px-28 py-2">
       {/* title */}
@@ -26,7 +19,7 @@ export default function Header(props) {
             <p>Categories</p>
             <div className="hidden group-hover:block border w-40 p-4 bg-white absolute -ml-8">
               <ul>
-                {listOfCategories.map((category) => (
+                {categories.map((category) => (
                   <li className="my-2 border-b capitalize">
                     <Link
                       className="hover:text-blue-500"
